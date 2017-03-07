@@ -1,0 +1,120 @@
+<ion-view view-title="Crear Inmueble" cache-view="false">
+	
+<!--        
+            valorInmueble:"",            
+            areaTotal:"",
+            tiempoConstruido:"",
+            habitaciones:"",
+            banos:"",         
+            estadoConservacion:"",
+            departamento:"",
+            ciudad:"",
+            zona:"",
+            longitud:"",
+            latitud:"",
+            email:"",
+            ruta:""
+	
+	
+	
+-->
+	<ion-content>
+		<div class="list list-inset">
+			<label class="item item-input item-stacked-label">
+				<span class="input-label">Título</span>
+				<input type="text" placeholder="Mi Inmueble" ng-model="vm.model.tituloAnuncio"/>
+			</label>
+			<label class="item item-input item-stacked-label">
+				<span class="input-label">Descripción</span>
+				<textarea placeholder="Descripción" ng-model="vm.model.descripcionInmueble"></textarea>
+			</label>
+			<label class="item item-input item-select">
+				<div class="input-label">
+					Tipo de Inmueble
+				</div>
+				<select name="tipoInmueble" ng-model="vm.model.tipoInmueble">
+					<option value="">Seleccione</option>
+					<option value="{{tipoinmueble.id}}" ng-repeat="tipoinmueble in vm.data.tipoInmueble">{{tipoinmueble.tipoInmueble}}</option>
+				</select>
+			</label>
+			<label class="item item-input item-select">
+				<div class="input-label">
+					Tipo de Anuncio
+				</div>
+				<select name="tipoAnuncio" ng-model="vm.model.tipoAnuncio">
+					<option value="">Seleccione</option>
+					<option value="{{tipoAnuncio.id}}" ng-repeat="tipoAnuncio in vm.data.tipoAnuncio">{{tipoAnuncio.tipoAnuncio}}</option>
+				</select>
+			</label>
+			<label class="item item-input item-stacked-label">
+				<span class="input-label">Valor Inmueble</span>
+				<input type="number" placeholder="000000000" ng-model="vm.model.valorInmueble"/>
+			</label>
+			<label class="item item-input item-stacked-label">
+				<span class="input-label">Area Total (m2)</span>
+				<input type="number" placeholder="000000000" ng-model="vm.model.areaTotal"/>
+			</label>
+			<label class="item item-input item-stacked-label">
+				<span class="input-label">Tiempo Construido (años)</span>
+				<input type="number" placeholder="000000000" ng-model="vm.model.tiempoConstruido"/>
+			</label>
+			<label class="item item-input item-stacked-label">
+				<span class="input-label">Habitaciones</span>
+				<input type="number" placeholder="000000000" ng-model="vm.model.habitaciones"/>
+			</label>
+			<label class="item item-input item-stacked-label">
+				<span class="input-label">Baños</span>
+				<input type="number" placeholder="000000000" ng-model="vm.model.banos"/>
+			</label>
+			<label class="item item-input item-select">
+				<div class="input-label">
+					Estado Inmueble
+				</div>
+				<select name="estadoConservacion" ng-model="vm.model.estadoConservacion">
+					<option value="">Seleccione</option>
+					<option value="{{estado.id}}" ng-repeat="estado in vm.data.estadoInmueble">{{estado.estadoInmueble}}</option>
+				</select>
+			</label>
+			<label class="item item-input item-select">
+				<div class="input-label">
+					Departamento
+				</div>
+				<select name="departamento" ng-model="vm.model.departamento" ng-change="vm.LoadCiudades()">
+					<option value="">Seleccione</option>
+					<option value="{{departamento.iddepartamento}}" ng-repeat="departamento in vm.data.departamentos">{{departamento.nombre}}</option>
+				</select>
+			</label>
+			<label class="item item-input item-select">
+				<div class="input-label">
+					Ciudad
+				</div>
+				<select name="ciudad" ng-model="vm.model.ciudad">
+					<option value="">Seleccione</option>
+					<option value="{{ciudad.idmunicipio}}" ng-repeat="ciudad in vm.data.ciudades">{{ciudad.nombreMunicipio}}</option>
+				</select>
+			</label>
+			<label class="item item-input item-select">
+				<div class="input-label">
+					Zona
+				</div>
+				<select name="zona" ng-model="vm.model.zona">
+					<option value="">Seleccione</option>
+					<option value="{{zona}}" ng-repeat="zona in vm.data.zona">{{zona}}</option>
+				</select>
+			</label>
+			<label class="item item-input item-stacked-label">
+				<span class="input-label">Latitud</span>
+				<input type="text" placeholder="-70.000000" ng-model="vm.model.latitud"/>
+			</label>
+			<label class="item item-input item-stacked-label">
+				<span class="input-label">Longitud</span>
+				<input type="text" placeholder="40.00000" ng-model="vm.model.longitud"/>
+			</label>
+		</div>
+		<div class="list list-inset">
+			<button class="button button-block button-stable" ng-click="vm.SaveInmueble()">
+				Publicar
+			</button>
+		</div>
+	</ion-content>
+</ion-view>

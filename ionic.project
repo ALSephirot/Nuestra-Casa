@@ -1,0 +1,11 @@
+{
+  "name": "realestate",
+  "app_id": "7c75efbd",
+  "browsers": [
+    {
+      "platform": "android",
+      "browser": "crosswalk",
+      "version": "12.41.296.5"
+    }
+  ]
+}

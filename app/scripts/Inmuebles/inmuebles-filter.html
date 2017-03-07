@@ -1,0 +1,244 @@
+<ion-modal-view>
+	<ion-header-bar>
+		<h1 class="title">Opciones de búsqueda</h1>
+		<div class="buttons">
+			<button
+					class="button button-clear icon ion-checkmark"
+					ng-click="vm.applyFilters()"
+					style="color: #444;"></button>
+		</div>
+	</ion-header-bar>
+	<ion-content>
+		<div class="list">
+            <!--Inicio Departamentos-->
+            <ion-item class="item-divider" ng-show="!vm.Departamento.Show">{{vm.Departamento.Nombre}}
+                <button
+					class="button button-clear icon ion-android-add"
+					ng-click="vm.Departamento.ShowOptions()"
+					style="color: #fff;float: right;min-height: 0px;height: 2px;top: -10px;"></button>
+            </ion-item>
+            
+            <ion-item class="item-divider" ng-show="vm.Departamento.Show">Departamentos</ion-item>
+			<ion-radio
+					name="departamentos"
+					ng-repeat="departamento in vm.Departamento.Data"
+					ng-model="vm.Departamento.Id"
+                    ng-show="vm.Departamento.Show"
+					ng-value="{{departamento.iddepartamento}}" ng-click="vm.Departamento.change(departamento.nombre, departamento.iddepartamento)">{{departamento.nombre}}</ion-radio>
+                    
+             <!-- Fin Departamentos-->
+             
+             <!--Inicio Municipios-->
+            <ion-item class="item-divider" ng-show="!vm.idMunicipio.Show">{{vm.idMunicipio.Nombre}}
+                <button
+					class="button button-clear icon ion-android-add"
+					ng-click="vm.idMunicipio.ShowOptions()"
+					style="color: #fff;float: right;min-height: 0px;height: 2px;top: -10px;"></button>
+            </ion-item>
+            <ion-item class="item-divider" ng-show="vm.idMunicipio.Show">Municipios</ion-item>
+			<ion-radio
+					name="municipios"
+					ng-repeat="municipio in vm.idMunicipio.Data"
+					ng-model="vm.idMunicipio.Id"
+					ng-value="{{municipio.idmunicipio}}"
+                    ng-show="vm.idMunicipio.Show" ng-click="vm.idMunicipio.change(municipio.nombreMunicipio, municipio.idmunicipio)">{{municipio.nombreMunicipio}}</ion-radio>
+            <!--Fin Municipios-->
+            
+             <!--Inicio Tipo Inmueble-->
+            <ion-item class="item-divider" ng-show="!vm.tipoInmueble.Show">{{vm.tipoInmueble.Nombre}}
+                <button
+					class="button button-clear icon ion-android-add"
+					ng-click="vm.tipoInmueble.ShowOptions()"
+					style="color: #fff;float: right;min-height: 0px;height: 2px;top: -10px;"></button>
+            </ion-item>
+            <ion-item class="item-divider" ng-show="vm.tipoInmueble.Show">Tipo Inmueble</ion-item>
+			<ion-radio
+					name="municipios"
+					ng-repeat="tipoInmueble in vm.tipoInmueble.Data"
+					ng-model="vm.tipoInmueble.Id"
+					ng-value="{{tipoInmueble.id}}"
+                    ng-show="vm.tipoInmueble.Show" ng-click="vm.tipoInmueble.change(tipoInmueble.tipoInmueble, tipoInmueble.id)">{{tipoInmueble.tipoInmueble}}</ion-radio>
+            <!--Fin Tipo Inmueble-->
+            
+            <!--Inicio Estado Inmueble-->
+            <ion-item class="item-divider" ng-show="!vm.estadoInmueble.Show">{{vm.estadoInmueble.Nombre}}
+                <button
+					class="button button-clear icon ion-android-add"
+					ng-click="vm.estadoInmueble.ShowOptions()"
+					style="color: #fff;float: right;min-height: 0px;height: 2px;top: -10px;"></button>
+            </ion-item>
+            <ion-item class="item-divider" ng-show="vm.estadoInmueble.Show">Estado Inmueble</ion-item>
+			<ion-radio
+					name="estadoInmueble"
+					ng-repeat="estadoInmueble in vm.estadoInmueble.Data"
+					ng-model="vm.estadoInmueble.Id"
+					ng-value="{{estadoInmueble.id}}"
+                    ng-show="vm.estadoInmueble.Show" ng-click="vm.estadoInmueble.change(estadoInmueble.estadoInmueble, estadoInmueble.id)">{{estadoInmueble.estadoInmueble}}</ion-radio>
+            <!--Fin Tipo Inmueble-->
+            
+            <!--Inicio Zonas-->
+            <ion-item class="item-divider" ng-show="!vm.zona.Show">{{vm.zona.Nombre}}
+                <button
+					class="button button-clear icon ion-android-add"
+					ng-click="vm.zona.ShowOptions()"
+					style="color: #fff;float: right;min-height: 0px;height: 2px;top: -10px;"></button>
+            </ion-item>
+            <ion-item class="item-divider" ng-show="vm.zona.Show">Zonas</ion-item>
+			<ion-radio
+					name="zonas"
+					ng-repeat="zona in vm.zona.Data"
+					ng-model="vm.zona.Id"
+					ng-value="{{zona}}"
+                    ng-show="vm.zona.Show" ng-click="vm.zona.change(zona, zona)">{{zona}}</ion-radio>
+            <!--Fin Zonas-->
+            
+            <!--Inicio Barrios-->
+            <ion-item class="item-divider" ng-show="!vm.barrio.Show">{{vm.barrio.Nombre}}
+                <button
+					class="button button-clear icon ion-android-add"
+					ng-click="vm.barrio.ShowOptions()"
+					style="color: #fff;float: right;min-height: 0px;height: 2px;top: -10px;"></button>
+            </ion-item>
+            <ion-item class="item-divider" ng-show="vm.barrio.Show">Barrio</ion-item>
+            <div class="item search-box" ng-show="vm.barrio.Show">
+                <input type="text" ng-model="vm.barrio.Id"
+					ng-value="{{vm.barrio.Id}}"
+                    ng-show="vm.barrio.Show" placeholder="Escribe el barrio que deseas" style="width: 100%;">
+                <button
+					class="button button-clear icon ion-checkmark"
+                    ng-show="vm.barrio.Show"
+					ng-click="vm.barrio.change(vm.barrio.Id, vm.barrio.Id)"
+					style="color: rgb(0, 0, 0);float: right;min-height: 0px;height: 2px;top: -36px;"></button>
+            </div>
+            <!--Fin Barrios-->
+            
+            <!--Inicio Valor Hasta-->
+            <ion-item class="item-divider" ng-show="!vm.valorDesde.Show">{{vm.valorDesde.Nombre}}
+                <button
+					class="button button-clear icon ion-android-add"
+					ng-click="vm.valorDesde.ShowOptions()"
+					style="color: #fff;float: right;min-height: 0px;height: 2px;top: -10px;"></button>
+            </ion-item>
+            <ion-item class="item-divider" ng-show="vm.valorDesde.Show">Valor Desde</ion-item>
+            <div class="item search-box" ng-show="vm.valorDesde.Show">
+                <input type="number" ng-model="vm.valorDesde.Id"
+					ng-value="{{vm.valorDesde.Id}}"
+                    ng-show="vm.valorDesde.Show" placeholder="Valor Desde" style="width: 100%;">
+                <button
+					class="button button-clear icon ion-checkmark"
+                    ng-show="vm.valorDesde.Show"
+					ng-click="vm.valorDesde.change(vm.valorDesde.Id, vm.valorDesde.Id)"
+					style="color: rgb(0, 0, 0);float: right;min-height: 0px;height: 2px;top: -36px;"></button>
+            </div>
+            <!--Fin Valor Hasta-->
+            
+            <!--Inicio Valor Hasta-->
+            <ion-item class="item-divider" ng-show="!vm.valorHasta.Show">{{vm.valorHasta.Nombre}}
+                <button
+					class="button button-clear icon ion-android-add"
+					ng-click="vm.valorHasta.ShowOptions()"
+					style="color: #fff;float: right;min-height: 0px;height: 2px;top: -10px;"></button>
+            </ion-item>
+            <ion-item class="item-divider" ng-show="vm.valorHasta.Show">Valor Hasta</ion-item>
+            <div class="item search-box" ng-show="vm.valorHasta.Show">
+                <input type="number" ng-model="vm.valorHasta.Id"
+					ng-value="{{vm.valorHasta.Id}}"
+                    ng-show="vm.valorHasta.Show" placeholder="Valor Hasta" style="width: 100%;">
+                <button
+					class="button button-clear icon ion-checkmark"
+                    ng-show="vm.valorHasta.Show"
+					ng-click="vm.valorHasta.change(vm.valorHasta.Id, vm.valorHasta.Id)"
+					style="color: rgb(0, 0, 0);float: right;min-height: 0px;height: 2px;top: -36px;"></button>
+            </div>
+            <!--Fin Valor Hasta-->
+			
+            <!--Inicio Baños-->
+            <ion-item class="item-divider" ng-show="!vm.banos.Show">{{vm.banos.Nombre}}
+                <button
+					class="button button-clear icon ion-android-add"
+					ng-click="vm.banos.ShowOptions()"
+					style="color: #fff;float: right;min-height: 0px;height: 2px;top: -10px;"></button>
+            </ion-item>
+            <ion-item class="item-divider" ng-show="vm.banos.Show">Baños</ion-item>
+			<ion-radio
+					name="banos"
+					ng-repeat="bano in vm.banos.Data"
+					ng-model="vm.banos.Id"
+					ng-value="{{bano.Valor}}"
+                    ng-show="vm.banos.Show" ng-click="vm.banos.change(bano.Nombre, bano.Valor)">{{bano.Nombre}}</ion-radio>
+            <!--Fin Baños-->
+            
+            <!--Inicio habitaciones-->
+            <ion-item class="item-divider" ng-show="!vm.habitaciones.Show">{{vm.habitaciones.Nombre}}
+                <button
+					class="button button-clear icon ion-android-add"
+					ng-click="vm.habitaciones.ShowOptions()"
+					style="color: #fff;float: right;min-height: 0px;height: 2px;top: -10px;"></button>
+            </ion-item>
+            <ion-item class="item-divider" ng-show="vm.habitaciones.Show">Habitaciones</ion-item>
+			<ion-radio
+					name="habitaciones"
+					ng-repeat="habitacion in vm.habitaciones.Data"
+					ng-model="vm.habitaciones.Id"
+					ng-value="{{habitacion.Valor}}"
+                    ng-show="vm.habitaciones.Show" ng-click="vm.habitaciones.change(habitacion.Nombre, habitacion.Valor)">{{habitacion.Nombre}}</ion-radio>
+            <!--Fin habitaciones-->
+            
+            <!--Inicio Tiempo de Construido-->
+            <ion-item class="item-divider" ng-show="!vm.tiempoConstruido.Show">{{vm.tiempoConstruido.Nombre}}
+                <button
+					class="button button-clear icon ion-android-add"
+					ng-click="vm.tiempoConstruido.ShowOptions()"
+					style="color: #fff;float: right;min-height: 0px;height: 2px;top: -10px;"></button>
+            </ion-item>
+            <ion-item class="item-divider" ng-show="vm.tiempoConstruido.Show">Tiempo de Construido</ion-item>
+			<ion-radio
+					name="tiempoConstruido"
+					ng-repeat="antiguedad in vm.tiempoConstruido.Data"
+					ng-model="vm.tiempoConstruido.Id"
+					ng-value="{{antiguedad.Valor}}"
+                    ng-show="vm.tiempoConstruido.Show" ng-click="vm.tiempoConstruido.change(antiguedad.Nombre, antiguedad.Valor)">{{antiguedad.Nombre}}</ion-radio>
+            <!--Fin Tiempo de Construido-->
+            
+            <!--Inicio Fecha Desde-->
+            <ion-item class="item-divider" ng-show="!vm.fechaDesde.Show">{{vm.fechaDesde.Nombre}}
+                <button
+					class="button button-clear icon ion-android-add"
+					ng-click="vm.fechaDesde.ShowOptions()"
+					style="color: #fff;float: right;min-height: 0px;height: 2px;top: -10px;"></button>
+            </ion-item>
+            <ion-item class="item-divider" ng-show="vm.fechaDesde.Show">Fecha Desde</ion-item>
+            <div class="item search-box" ng-show="vm.fechaDesde.Show">
+                <input type="date" ng-model="vm.fechaDesde.Id"
+					ng-value="{{vm.fechaDesde.Id}}"
+                    ng-show="vm.fechaDesde.Show" placeholder="Fecha Desde" style="width: 80%">
+                <button
+					class="button button-clear icon ion-checkmark"
+                    ng-show="vm.fechaDesde.Show"
+					ng-click="vm.fechaDesde.change(vm.fechaDesde.Id, vm.fechaDesde.Id)"
+					style="color: rgb(0, 0, 0);float: right;min-height: 0px;height: 2px;top: -36px;"></button>
+            </div>
+            <!--Fin Fecha Desde-->
+            
+            <!--Inicio Fecha Hasta-->
+            <ion-item class="item-divider" ng-show="!vm.fechaHasta.Show">{{vm.fechaHasta.Nombre}}
+                <button
+					class="button button-clear icon ion-android-add"
+					ng-click="vm.fechaHasta.ShowOptions()"
+					style="color: #fff;float: right;min-height: 0px;height: 2px;top: -10px;"></button>
+            </ion-item>
+            <ion-item class="item-divider" ng-show="vm.fechaHasta.Show">Fecha Hasta</ion-item>
+            <div class="item search-box" ng-show="vm.fechaHasta.Show">
+                <input type="date" ng-model="vm.fechaHasta.Id"
+					ng-value="{{vm.fechaHasta.Id}}"
+                    ng-show="vm.fechaHasta.Show" placeholder="Fecha Hasta" style="width: 80%;">
+                <button
+					class="button button-clear icon ion-checkmark"
+                    ng-show="vm.fechaHasta.Show"
+					ng-click="vm.fechaHasta.change(vm.fechaHasta.Id, vm.fechaHasta.Id)"
+					style="color: rgb(0, 0, 0);float: right;min-height: 0px;height: 2px;top: -36px;"></button>
+            </div>
+            <!--Fin Fecha Hasta-->
+		</div>
+	</ion-content>
+</ion-modal-view>

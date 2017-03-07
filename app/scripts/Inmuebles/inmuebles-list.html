@@ -1,0 +1,43 @@
+<ion-view class="properties">
+	<ion-nav-title>
+		Inmuebles
+	</ion-nav-title>
+
+	<ion-nav-buttons side="right">
+		<button class="button button-clear icon ion-android-options" ng-click="vm.showFilter()"></button>
+	</ion-nav-buttons>
+
+	<ion-content ng-init="vm.search = ''">
+		<ion-refresher pulling-text=""
+                           on-refresh="vm.getInmueblesFilter(1)">
+            </ion-refresher>
+		<!--<ion-scroll zooming="true" direction="x" scrollbar-x="false" class="categories-filter">
+			<span ng-repeat="category in vm.categories">
+				<button class="button button-light filter-button"
+					ng-click="vm.filterByCategory(category)"
+					ng-class="{'active-filter-button': category === vm.selectedCategory}">
+					{{category}}
+				</button>
+			</span>
+		</ion-scroll>-->
+		<div class="item search-box">
+			<input type="text" placeholder="Buscar..." ng-model="vm.search"/>
+		</div>
+		<ion-list>
+			<ion-item class="item item-thumbnail-left item-text-wrap"
+				ng-click="vm.navigate(inmueble.id_inmueble)"
+				ng-repeat="inmueble in vm.inmuebles | filter: { tituloAnuncio: vm.search }">
+				<img ng-src="{{inmueble.ruta}}">
+				<div class="price">{{inmueble.valorInmuebleprice | currency }}</div>
+				<h2>{{inmueble.tituloAnuncio}}</h2>
+				<h3>{{inmueble.tipoInmueble}}</h3>
+				<p>{{inmueble.description | limitTo: 140 }}{{inmueble.description.length > 140 ? '...' : ''}}</p>
+				<div class="distance"><em class="ion ion-ios-location"></em> {{inmueble.nombreMunicipio}}</div>
+			</ion-item>
+			<ion-infinite-scroll distance="1"
+									on-infinite="vm.CargarMasDatos()"
+									ng-if="vm.moreInfo">
+			</ion-infinite-scroll>
+		</ion-list>
+	</ion-content>
+</ion-view>

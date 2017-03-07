@@ -1,0 +1,51 @@
+<ion-view view-title="Inicio" cache-view="false" id="page">
+    <ul class="cb-slideshow">
+            <li><span></span><div><h3></h3></div></li>
+            <li><span></span><div><h3></h3></div></li>
+            <li><span></span><div><h3></h3></div></li>
+            <li><span></span><div><h3></h3></div></li>
+        </ul>
+	<ion-content>
+        <div class="list list-inset" style="margin: 50% 10px 25px 10px;">
+			<label class="item item-input item-select">
+				<div class="input-label">
+					Tipo de Inmueble
+				</div>
+				<select name="tipoInmueble" ng-model="vm.model.tipoInmueble">
+					<option value="">Seleccione</option>
+					<option value="{{tipoinmueble.id}}" ng-repeat="tipoinmueble in vm.data.tipoInmueble">{{tipoinmueble.tipoInmueble}}</option>
+				</select>
+			</label>
+			<label class="item item-input item-select">
+				<div class="input-label">
+					Tipo de Anuncio
+				</div>
+				<select name="tipoAnuncio" ng-model="vm.model.tipoAnuncio">
+					<option value="">Seleccione</option>
+					<option value="{{tipoAnuncio.id}}" ng-repeat="tipoAnuncio in vm.data.tipoAnuncio">{{tipoAnuncio.tipoAnuncio}}</option>
+				</select>
+			</label>
+			<label class="item item-input item-select">
+				<div class="input-label">
+					Departamento
+				</div>
+				<select name="departamento" ng-model="vm.model.departamento" ng-change="vm.LoadCiudades()">
+					<option value="">Seleccione</option>
+					<option value="{{departamento.iddepartamento}}" ng-repeat="departamento in vm.data.departamentos">{{departamento.nombre}}</option>
+				</select>
+			</label>
+			<label class="item item-input item-select">
+				<div class="input-label">
+					Ciudad
+				</div>
+				<select name="ciudad" ng-model="vm.model.ciudad">
+					<option value="">Seleccione</option>
+					<option value="{{ciudad.idmunicipio}}" ng-repeat="ciudad in vm.data.ciudades">{{ciudad.nombreMunicipio}}</option>
+				</select>
+			</label>
+		</div>
+        <button class="button button-block button-stable" ng-click="vm.Buscar()">
+            Buscar
+        </button>
+	</ion-content>
+</ion-view>

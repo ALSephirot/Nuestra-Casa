@@ -1,0 +1,30 @@
+<ion-view view-title="Inicio" cache-view="false">
+	<ion-content>
+		<form action="" method="POST">
+			<div class="list list-inset">
+				<label class="item item-input item-stacked-label">
+					<span class="input-label">Nombres</span>
+					<input type="text" placeholder="Nombres" ng-model="vm.model.nombres"/>
+				</label>
+
+				<label class="item item-input item-stacked-label">
+					<span class="input-label">EMail</span>
+					<input type="email" placeholder="Email" ng-model="vm.model.email"/>
+				</label>
+
+				<label class="item item-input item-stacked-label">
+					<span class="input-label">Teléfono</span>
+					<input type="tel" placeholder="Teléfono" ng-model="vm.model.telefono"/>
+				</label>
+				<label class="item item-input item-stacked-label">
+					<span class="input-label">Mensaje</span>
+					<textarea placeholder="Mensaje" ng-model="vm.model.mensaje"></textarea>
+				</label>
+			<button class="button button-block button-stable" ng-click="vm.Enviar()">
+				Enviar
+			</button>
+		</form>
+	</ion-content>
+</ion-view>
+
+
